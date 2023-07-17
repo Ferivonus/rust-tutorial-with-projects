@@ -1,3 +1,11 @@
-/target
-.lock
-*.toml
+# Cargo generated files
+**/target/
+**/Cargo.lock
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.rs.bak
+
+# Compiled binary files
+**/*.rs.bak
