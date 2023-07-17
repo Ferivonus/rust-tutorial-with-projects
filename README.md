@@ -1,4 +1,4 @@
-# Rust-tutorial
+# Rust-tutorial of ferivon
 rust tutorial for beginners 
 
 ## build your project with:
