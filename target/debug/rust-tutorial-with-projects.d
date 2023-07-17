@@ -1,0 +1,1 @@
+C:\Users\fahre\Desktop\yazılım\my\ codes\RUST\tutorial\rust-tutorial-with-projects\target\debug\rust-tutorial-with-projects.exe: C:\Users\fahre\Desktop\yazılım\my\ codes\RUST\tutorial\rust-tutorial-with-projects\src\main.rs
