@@ -1,3 +1,14 @@
-/target
+# Ignore target directory
+/target/
+
+# Ignore all .lock files
 *.lock
+
+# Ignore all .toml files
 *.toml
+
+# Ignore backup .rs.bk files
+*.rs.bk
+
+# Ignore Cargo.lock file
+Cargo.lock
