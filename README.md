@@ -1,2 +1,2 @@
-# rust-tutorial
+# Rust-tutorial
 rust tutorial for beginners 
