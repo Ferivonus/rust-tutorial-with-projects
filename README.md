@@ -7,7 +7,10 @@ rust tutorial for beginners
 1. Install a code editor of your choice. I personally recommend using Visual Studio Code (VSCode).
 2. Install Rust on your computer by downloading it from the official Rust website or using a Rust playground available online.
 3. Set up your development environment by installing the Rust toolchain.
-4. When you need help to understand that github repo, you can connect with me on `discord` my nickname is `ferivonus#3001` 
+4. When you need help to understand that github repo, you can connect with me on `discord` my nickname is `ferivonus#3001`
+
+## Personal advices:
+- Avoid using ChatGPT or any AI while learning Rust. It causes numerous frustrating errors that are challenging to handle. Instead, focus on writing your code by yourself. If you feel exhausted from writing, you can consult ChatGPT to assist you with the specific parts of the code you already understand.
 
 ## Using this Tutorial:
 1. create a project to your computer with cargo `new [projectName]`
