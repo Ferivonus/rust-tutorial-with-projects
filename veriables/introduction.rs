@@ -1,29 +1,35 @@
-// intermediate.rs
-
 fn main() {
-    // Intermediate Level: Mutable Variables and Type Annotation
+    // Integer variable with explicit type annotation
+    let age: i32 = 24;
+    println!("Age: {}", age);
 
-    // Declare a mutable variable named 'counter' of type 'u32' with an initial value of a function call
-    let mut counter: u32 = get_initial_counter();
+    // Floating-point variable
+    let temperature = 32.5;
+    println!("Temperature: {}", temperature);
 
-    // Print the initial value of 'counter'
-    println!("The initial value of counter is: {}", counter);
+    // Boolean variable with explicit type annotation
+    let is_nailing: bool = false;
+    println!("Is it nailing? {}", is_nailing);
 
-    // Call a function to modify the value of 'counter'
-    modify_counter(&mut counter);
+    // Character variable with explicit type annotation
+    let grade: char = 'A';
+    println!("Grade: {}", grade);
 
-    // Print the updated value of 'counter'
-    println!("The updated value of counter is: {}", counter);
-}
-
-fn get_initial_counter() -> u32 {
-    // Simulate a complex computation to obtain the initial value
-    42
-}
-
-fn modify_counter(counter: &mut u32) {
-    // Modify the value of 'counter' by adding 10
-    *counter += 10;
+    // String variable
+    let name: String = String::from("Ferivon");
+    println!("Name: {}", name);
+ 
+     // Variables are immutable by default, meaning their values cannot be changed once assigned.
+     // Uncomment the following line to see a compilation error.
+     // age = 25; // This will produce an error: "cannot assign twice to immutable variable `x`"
+ 
+     // To declare a mutable variable, use the `mut` keyword.
+     let mut y = 10; // `y` is a mutable variable of type `i32` with an initial value of 10.
+     println!("The value of y is: {}", y);
+ 
+     // But mutable variables can be reassigned.
+     y = 15;
+     println!("The new value of y is: {}", y);
 }
 
 /*
