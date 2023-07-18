@@ -71,6 +71,7 @@ fn main() {
     X: 957, Y: 867
     X: 939, Y: 928
 
+    Cargo.toml:
     [package]
     name = "rust-tutorial-with-projects"
     version = "0.1.0"
