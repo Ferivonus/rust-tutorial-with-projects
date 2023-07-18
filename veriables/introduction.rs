@@ -35,8 +35,13 @@ fn main() {
 /*
     The output is that:
 
-    The initial value of counter is: 42
-    The updated value of counter is: 52
+    Age: 24
+    Temperature: 32.5
+    Is it nailing? false
+    Grade: A
+    Name: Ferivon
+    The value of y is: 10
+    The new value of y is: 15
 
     Cargo.toml:
     
