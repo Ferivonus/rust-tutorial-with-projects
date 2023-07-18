@@ -12,3 +12,6 @@
 
 # Ignore Cargo.lock file
 Cargo.lock
+
+# Igoner additional coding partsfor my personal files
+/Personal/
