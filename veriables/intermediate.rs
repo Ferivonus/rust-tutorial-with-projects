@@ -1,71 +1,52 @@
-fn main() {
-    // Integer variables
-    let num1: i32 = 10;
-    let num2: i32 = 20;
-    let sum = num1 + num2;
-    println!("Sum: {}", sum);
+use winapi::shared::{
+    minwindef::{LPARAM, LRESULT, WPARAM},
+    windef::POINT,
+};
+use winapi::um::{
+    libloaderapi::GetModuleHandleW,
+    winuser::{CallNextHookEx, SetWindowsHookExW, UnhookWindowsHookEx, WH_CALLWNDPROC, WM_SETCURSOR},
+};
 
-    // Floating-point variables
-    let pi: f64 = 3.14159;
-    let radius: f64 = 5.0;
-    let area = pi * radius * radius;
-    println!("Area: {}", area);
+use std::convert::TryInto;
+use winapi::ctypes::c_long;
 
-    // Boolean variables
-    let is_greater = num1 > num2;
-    println!("Is num1 greater than num2? {}", is_greater);
+static mut ORIGINAL_PROC: Option<unsafe extern "system" fn(c_long, WPARAM, LPARAM) -> LRESULT> = None;
 
-    // Character variables
-    let letter: char = 'A';
-    let unicode_value = letter as u32;
-    println!("Letter: {}, Unicode value: {}", letter, unicode_value);
-
-    // String variables
-    let name1 = "feriv".to_string();
-    let name2 = String::from("onus");
-    let full_name = format!("{} {}", name1, name2);
-    println!("Full name: {}", full_name);
-
-    // Array variables
-    let numbers: [i32; 3] = [1, 2, 3];
-    println!("Numbers: {:?}", numbers);
-
-    // Tuple variables
-    let person: (String, i32, bool) = ("feriv".to_string(), 24, true);
-    println!("Person: {:?}", person);
-
-    // Slices
-    let message = "Hello, world!";
-    let slice = &message[7..12];
-    println!("Slice: {}", slice);
-
-    // Option variables
-    let some_value: Option<i32> = Some(42);
-    let _none_value: Option<i32> = None;
-    match some_value {
-        Some(value) => println!("Some value: {}", value),
-        None => println!("No value"),
+unsafe extern "system" fn mouse_hook_proc(n_code: c_long, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
+    if n_code == 0 && w_param == WH_CALLWNDPROC {
+        let cwp = *(l_param as *const winapi::um::winuser::CWPSTRUCT);
+        let msg = cwp.message;
+        let hwnd = cwp.hwnd;
+        if msg == WM_SETCURSOR {
+            let mut cursor_pos = POINT::default();
+            winapi::um::winuser::GetCursorPos(&mut cursor_pos);
+            let x = cursor_pos.x + 10;
+            let y = cursor_pos.y + 10;
+            winapi::um::winuser::SetCursorPos(x, y);
+            return 1;
+        }
     }
-
-    // Result variables
-    let result: Result<i32, String> = Ok(42);
-    match result {
-        Ok(value) => println!("Result value: {}", value),
-        Err(error) => println!("Error: {}", error),
+    if let Some(proc) = ORIGINAL_PROC {
+        proc(n_code, w_param, l_param)
+    } else {
+        winapi::um::winuser::CallNextHookEx(std::ptr::null_mut(), n_code, w_param, l_param)
     }
 }
-/*
-    Output of this code:
 
-    Sum: 30
-    Area: 78.53975
-    Is num1 greater than num2? false
-    Letter: A, Unicode value: 65
-    Full name: feriv onus
-    Numbers: [1, 2, 3]
-    Person: ("feriv", 24, true)
-    Slice: world
-    Some value: 42
-    Result value: 42
+unsafe extern "system" fn mouse_hook() {
+    let module = GetModuleHandleW(std::ptr::null_mut());
+    let mut thread_id = 0;
+    let hook = SetWindowsHookExW(
+        WH_CALLWNDPROC,
+        Some(mouse_hook_proc),
+        module,
+        thread_id.try_into().unwrap(),
+    );
+    ORIGINAL_PROC = Some(hook);
+}
 
-*/
+fn main() {
+    unsafe {
+        mouse_hook();
+    }
+}
