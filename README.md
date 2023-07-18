@@ -1,6 +1,8 @@
 # Rust-tutorial of ferivon
 rust tutorial for beginners 
 
+![Welcome :3](additional-pictures-to-github/ferivon%20welcome.png)
+
 ## Getting Started:
 1. Install a code editor of your choice. I personally recommend using Visual Studio Code (VSCode).
 2. Install Rust on your computer by downloading it from the official Rust website or using a Rust playground available online.

@@ -1,8 +1,8 @@
 fn main() {
     // Constants: Score Validation
-    let fermancode: &str = "Fervon :3";
+    let fermancode: &str = "My name is Fervon :3, and";
 
-    println!("\x1b[1;36m\nI hope that it would be helpful for you {}\x1b[0m", fermancode);
+    println!("\x1b[1;36m\n{} I hope that it would be helpful for you\x1b[0m", fermancode);
 
     // Calling the let_me_help function
     let welcome_message = let_me_help();
@@ -35,5 +35,5 @@ fn let_me_help_to_you() -> Result<String, Box<dyn std::error::Error>> {
 }
 
 fn let_me_help_for_newbies() -> Result<String, Box<dyn std::error::Error>> {
-    Ok(String::from("\x1b[1;34mWhat you need.\x1b[0m"))
+    Ok(String::from("\x1b[1;34mWhat you need.\x1b[0m\n"))
 }
