@@ -16,7 +16,8 @@ rust tutorial for beginners
 4. Open the Cargo.toml file in your project directory and add the necessary dependencies or libraries as specified in the tutorial. This file helps identify the libraries that will be used in your project.
 5. Build your Rust code by running the command `cargo build` in your terminal. This command compiles your code and resolves any dependencies.
 6. Run your Rust code by executing the command `cargo run` in your terminal. This command compiles and runs your code in a single step.
-7. Take the time to understand what is happening in the code by reading the comments and studying the Rust syntax. Experiment with the code and make changes to see the effects.
+8. If you get weird code bugs, just try `cargo clean` `cargo build` `cargo run` one more time. Sometimes it solves the problem.
+8. Take the time to understand what is happening in the code by reading the comments and studying the Rust syntax. Experiment with the code and make changes to see the effects.
 
 ## Additional Tips and Resources:
 - Practice regularly: Learning Rust, like any programming language, requires practice. Try to write code regularly to reinforce your understanding and improve your skills.
