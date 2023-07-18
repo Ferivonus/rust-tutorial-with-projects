@@ -35,13 +35,7 @@ rust tutorial for beginners
 - Attend Rust conferences and meetups: Rust conferences and meetups provide valuable opportunities to network with Rust enthusiasts, attend talks, and participate in workshops. Keep an eye out for Rust events happening locally or online.
 
 - Take advantage of Rust tools and libraries: Rust has a growing ecosystem of tools and libraries that can make your development process easier and more efficient. Explore popular libraries like serde for serialization, actix-web for building web applications, and tokio for asynchronous programming.
-
-### build your project with:
-`cargo build`
-### run your project with 
-`cargo run`
-
 ### test your project with 
-` cargo test `
+`cargo test`
 ### build documentation for your project with 
 `cargo doc`
